@@ -26,4 +26,6 @@ def main():
 
     print("It took you", numGuesses, "guesses.")    
 
-main()
+if __name__ == '__main__':
+    main()
+
