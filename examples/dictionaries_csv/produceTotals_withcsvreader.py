@@ -1,12 +1,13 @@
 import csv
 
 produceFile = open("produceSalesAltered.csv")
-produceFile.readline()  # discard first line
-
 csvReader = csv.reader(produceFile)
 
+produceData = list(csvReader) # Get a list of lists
+
 produceTotals = {}
-for csvLine in csvReader:
+for csvLine in produceData[1:]:
+    # Extract data from current line
     [produceType, costPerPound, poundsSold, total] = csvLine
     if produceType in produceTotals:
         produceTotals[produceType] = produceTotals[produceType] + float(total)
