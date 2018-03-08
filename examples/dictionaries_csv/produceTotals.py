@@ -1,11 +1,12 @@
 
 
 produceFile = open("produceSales.csv")
-exit()
+
 produceFile.readline()  # discard first line
+lines = produceFile.readlines() # read rest of lines
 
 produceTotals = {}
-for line in produceFile:
+for line in lines:
   [produceType, costPerPound, poundsSold, total] = line.split(',')
   if produceType in produceTotals:
     produceTotals[produceType] = produceTotals[produceType] + float(total)

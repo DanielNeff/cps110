@@ -8,7 +8,10 @@ produceData = list(csvReader) # Get a list of lists
 produceTotals = {}
 for csvLine in produceData[1:]:
     # Extract data from current line
-    [produceType, costPerPound, poundsSold, total] = csvLine
+    # [produceType, _, _, total] = csvLine
+    produceType = csvLine[0]  # produce type is in position 0 of list
+    total = csvLine[3]        # produce total is in position 3 of list
+
     if produceType in produceTotals:
         produceTotals[produceType] = produceTotals[produceType] + float(total)
     else:
